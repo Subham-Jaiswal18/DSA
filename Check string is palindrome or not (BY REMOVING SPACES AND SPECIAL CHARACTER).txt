@@ -1,0 +1,32 @@
+#include <bits/stdc++.h> 
+bool checkPalindrome(string s)
+{
+
+    int start=0;                            //Faltu characters htao aur null space htao fir compare kro
+    int end=s.length()-1;
+
+    while(start<end){
+
+        if(!isalnum(s[start])){
+            start++;
+        }
+
+        else if(!isalnum(s[end])){
+            end--;
+        }
+
+        else{
+
+            if(tolower(s[start])!=tolower(s[end])){
+            return false;
+        }
+
+        start++;
+        end--;
+
+    }
+
+    }
+    return true;
+
+}
