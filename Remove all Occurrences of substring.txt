@@ -1,0 +1,14 @@
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+
+     while(s.length()!=0 && s.find(part)<s.length()){      //  s.find ko s. length se isliye compare kr rhe hai agar part s me present hoga to uska uska index length se km aaega
+
+        s.erase(s.find(part),part.length());
+
+     }
+
+     return s;
+
+    }
+};
