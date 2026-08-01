@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+       vector<vector<int>> ans(n, vector<int>(n)); // Creates an n x n matrix initialized with 0s
+       int value=n*n;
+       int count=1;
+       int startrow=0;
+       int endrow=n-1;
+       int startcol=0;
+       int endcol=n-1;
+       while(count<=n*n){
+       for(int i=startcol;i<=endcol;i++){
+            ans[startrow][i]=count;
+            count++;
+       }
+       startrow++;
+
+       for(int i=startrow;i<=endrow;i++){
+            ans[i][endcol]=count;
+            count++;
+       }
+       endcol--;
+
+
+       for(int i=endcol;i>=startcol;i--){
+            ans[endrow][i]=count;
+            count++;
+       }
+       endrow--;
+
+       for(int i=endrow;i>=startrow;i--){
+            ans[i][startcol]=count;
+            count++;
+       }
+       startcol++;
+       }
+
+    return ans;
+
+    }
+};
