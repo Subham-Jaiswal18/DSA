@@ -1,0 +1,23 @@
+class Solution {
+public:
+int productofdigit(int a){
+    int product=1;
+    while(a!=0){
+        int digit=a%10;
+        if(digit==0)
+        return 0;
+        product*=digit;
+        a/=10;
+    }
+    return product;
+}
+    int smallestNumber(int n, int t) {
+       while(true){
+        if(productofdigit(n)%t==0){
+            return n;
+            break;
+        }
+        n++;
+       } 
+    }
+};
