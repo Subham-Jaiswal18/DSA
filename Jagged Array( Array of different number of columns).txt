@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows;
+
+    cout << "Enter the number of rows: ";
+    cin >> rows;
+
+    // 1. Allocate outer array of pointers
+    int** arr = new int*[rows];
+
+    // Array to keep track of each row's size for printing and cleanup
+    int* colSizes = new int[rows];
+
+    // 2. Input size and elements for each row
+    for (int i = 0; i < rows; i++) {
+        cout << "\nEnter size for row " << i << ": ";
+        cin >> colSizes[i];
+
+        // Allocate memory for this specific row
+        arr[i] = new int[colSizes[i]];
+
+        cout << "Enter " << colSizes[i] << " element(s) for row " << i << ": ";
+        for (int j = 0; j < colSizes[i]; j++) {
+            cin >> arr[i][j];
+        }
+    }
+
+    // 3. Display the jagged array
+    cout << "\n--- Your Jagged Array ---" << endl;
+    for (int i = 0; i < rows; i++) {
+        cout << "Row " << i << ": ";
+        for (int j = 0; j < colSizes[i]; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    // 4. Deallocate memory
+    for (int i = 0; i < rows; i++) {
+        delete[] arr[i]; // Free each row
+    }
+    delete[] arr;        // Free array of pointers
+    delete[] colSizes;   // Free size tracking array
+
+    return 0;
+}
