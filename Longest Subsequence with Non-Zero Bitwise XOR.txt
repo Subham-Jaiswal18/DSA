@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int longestSubsequence(vector<int>& nums) {
+        int length=nums.size();
+        int total=0;
+        bool isPositive=false;
+        for(int n : nums){
+            if(n!=0){
+                isPositive=true;
+            }
+            total^=n;
+        }
+        if(total!=0){
+            return length;
+        }
+        if(isPositive){
+            return length-1;
+        }
+        return 0;
+    }
+};
