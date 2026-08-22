@@ -1,0 +1,24 @@
+class Solution {
+public:
+int digitSumProduct(int n){
+    long long sum=0;
+    long long product=1;
+    while(n!=0){
+        int digit=n%10;
+        sum+=digit;
+        product*=digit;
+        n/=10;
+    }
+    long long ans=sum+product;
+    return ans;
+}
+    bool checkDivisibility(int n) {
+        long long value=digitSumProduct(n);
+        if(n%value==0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
