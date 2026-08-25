@@ -1,0 +1,67 @@
+class Solution {
+public:
+bool isPresent(vector<int>& nums, int n){
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]==n){
+            return true;
+        }
+    }
+    return false;
+}
+    int missingMultiple(vector<int>& nums, int k) {
+        int a=k;
+
+        while(true){
+            if(isPresent(nums,a)){
+                a+=k;
+            }
+            else{
+                return a;
+            }
+
+        }
+        return 0;
+    
+    }
+};
+
+
+
+
+
+
+
+
+
+
+time complexity -: O( N * M )
+
+space complexity -: O(1) 
+
+
+**************************************************************
+
+
+
+class Solution {
+public:
+    int missingMultiple(vector<int>& nums, int k) {
+        unordered_set<int>present(nums.begin(),nums.end());
+        int a=k;
+        while(present.count(a)){
+            a+=k;
+        }
+        return a;
+    }
+};
+
+
+
+time complexity -: O( N )
+
+space complexity -: O( N ) 
+
+
+
+
+
