@@ -1,0 +1,15 @@
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+        set<int>str;
+        for(int i=0;i<s.length();i++){
+            if(str.count(s[i])){
+                return s[i];
+            }
+            else{
+                str.insert(s[i]);
+            }
+        }
+        return 0;
+    }
+};
